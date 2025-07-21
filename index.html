@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <!-- Balises SEO -->
+  <title>Chez Fillya – Salon de coiffure mixte | Kinshasa</title>
+  <meta name="description" content="Coupe homme & femme, extensions, manucure et pédicure au 10 rue Lukunga, Lemba, Kinshasa. Réservez en ligne !">
+  <meta name="keywords" content="salon coiffure Kinshasa, coiffure mixte, extensions, manucure, pédicure, Lemba">
+  <meta name="author" content="Chez Fillya">
+  
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+  <meta property="og:title" content="Chez Fillya – Salon de coiffure mixte">
+  <meta property="og:description" content="Prenez RDV en ligne et découvrez nos produits capillaires.">
+  <meta property="og:image" content="https://<ton-pseudo>.github.io/chez-fillya/img/og-image.jpeg">
+  <meta property="og:url" content="https://<ton-pseudo>.github.io/chez-fillya/">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chez Fillya – Salon de coiffure mixte">
+  <meta name="twitter:description" content="Réservez en ligne et achetez nos produits.">
+  <meta name="twitter:image" content="https://<ton-pseudo>.github.io/chez-fillya/img/og-image.jpeg">
+  <meta name="theme-color" content="#f43f5e">
+  
+  <link rel="icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <!-- Canonique -->
+  <link rel="canonical" href="https://<ton-pseudo>.github.io/chez-fillya/">
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <header>
+    <h1>Chez <span>Fillya</span></h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#rdv">RDV</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero">
+      <h2>Salon de coiffure mixte</h2>
+      <p>Coupe, extensions, manucure & pédicure</p>
+      <a href="#rdv" class="btn">Prendre RDV</a>
+    </section>
+    
+    <section id="services">
+      <h2>Nos Services</h2>
+      <ul class="cards">
+        <li>
+          <h3>Coupe Homme</h3>
+          <p>25 € – 30 min</p>
+        </li>
+        <li>
+          <h3>Coupe Femme</h3>
+          <p>35 € – 45 min</p>
+        </li>
+        <li>
+          <h3>Extensions</h3>
+          <p>150 € – 2 h</p>
+        </li>
+        <li>
+          <h3>Manucure</h3>
+          <p>20 € – 30 min</p>
+        </li>
+        <li>
+          <h3>Pédicure</h3>
+          <p>25 € – 30 min</p>
+        </li>
+      </ul>
+    </section>
+    
+    <section id="galerie">
+      <h2>Galerie</h2>
+      <div class="gallery">
+        <img src="img/hair_man.jpeg" alt="">
+        <img src="img/hair_woman.jpeg" alt="">
+        <img src="img/nails.jpeg" alt="">
+        <img src="img/pedicure.jpeg" alt="">
+        <img src="img/barbershop.jpeg" alt="">
+        <img src="img/hairstyle.jpeg" alt="">
+      </div>
+    </section>
+
+    <section id="rdv">
+      <h2>Prendre RDV</h2>
+      <form id="booking-form">
+        <label>
+          Service
+          <select name="service" required>
+            <option value="">Choisissez</option>
+            <option>Coupe Homme</option>
+            <option>Coupe Femme</option>
+            <option>Extensions</option>
+            <option>Manucure</option>
+            <option>Pédicure</option>
+          </select>
+        </label>
+    
+        <label>
+          Date
+          <input type="date" name="date" required min="">
+        </label>
+    
+        <label>
+          Heure
+          <input type="time" name="time" required>
+        </label>
+    
+        <label>
+          Nom
+          <input type="text" name="name" required>
+        </label>
+    
+        <label>
+          Email
+          <input type="email" name="email" required>
+        </label>
+    
+        <button type="submit" class="btn">Réserver</button>
+      </form>
+    
+      <h3 id="recap-title" style="display:none;">Votre RDV</h3>
+      <ul id="recap-list"></ul>
+    </section>
+    
+    <section id="map-section">
+      <h2>Nous trouver</h2>
+      <p>10 rue Lukunga, Lemba, Kinshasa</p>
+      <div id="map" style="height:400px; width:100%;"></div>
+      <button id="direction-btn" class="btn">Itinéraire</button>
+      <p id="distance" style="margin-top:.5rem;"></p>
+    </section>
+    
+    <section id="avis">
+      <h2>Avis de nos clients</h2>
+    
+      <!-- Formulaire -->
+      <form id="review-form" class="card">
+        <label>
+          Nom
+          <input type="text" name="name" required>
+        </label>
+    
+        <label>
+          Note
+          <select name="rating" required>
+            <option value="5">★★★★★ 5/5</option>
+            <option value="4">★★★★☆ 4/5</option>
+            <option value="3">★★★☆☆ 3/5</option>
+            <option value="2">★★☆☆☆ 2/5</option>
+            <option value="1">★☆☆☆☆ 1/5</option>
+          </select>
+        </label>
+    
+        <label>
+          Commentaire
+          <textarea name="comment" rows="3" required></textarea>
+        </label>
+    
+        <button type="submit" class="btn">Publier</button>
+      </form>
+    
+      <!-- Liste des avis -->
+      <div id="reviews-list"></div>
+    </section>
+    
+    <section id="shop">
+      <h2>Boutique</h2>
+    
+      <!-- Catalogue -->
+      <div id="catalog" class="catalog"></div>
+    
+      <!-- Panier -->
+      <aside id="cart" class="card">
+        <h3>🛒 Mon panier</h3>
+        <ul id="cart-items"></ul>
+        <p><strong>Total : <span id="cart-total">0</span> USD</strong></p>
+        <button id="checkout" class="btn" disabled>Commander via WhatsApp</button>
+      </aside>
+    </section>
+
+    <!-- Les autres sections viendront ici -->
+  </main>
+
+  <footer>
+    <p>📍 10 rue Lukunga, Lemba, Kinshasa</p>
+    <p>📞 <a href="tel:+243800000000">+243 80 00 00 00</a></p>
+    <p>&copy; 2024 Chez Fillya</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
