@@ -230,3 +230,39 @@ input, select {
   justify-content: space-between;
   margin-bottom: .5rem;
 }
+
+footer {
+  background: #18181b;
+  color: #fafafa;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+footer a {
+  color: #f43f5e;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  nav a {
+    margin: 0 0.5rem;
+  }
+  #hero h2 {
+    font-size: 2rem;
+  }
+  .catalog {
+    grid-template-columns: 1fr 1fr;
+  }
+  #cart {
+    position: static;
+  }
+}
