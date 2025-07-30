@@ -5,6 +5,12 @@ const CONFIG = {
   OPENING_HOURS: {
     weekdays: "9h - 19h",
     sunday: "10h - 17h"
+  },
+  // Configuration EmailJS (à remplacer par tes vraies clés)
+  EMAILJS: {
+    SERVICE_ID: "YOUR_SERVICE_ID", // Remplace par ton Service ID
+    TEMPLATE_ID: "YOUR_TEMPLATE_ID", // Remplace par ton Template ID
+    PUBLIC_KEY: "YOUR_PUBLIC_KEY" // Remplace par ta Public Key
   }
 };
 
@@ -147,7 +153,7 @@ class BookingSystem {
     });
   }
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault();
     
     const formData = new FormData(this.form);
@@ -170,13 +176,64 @@ class BookingSystem {
       createdAt: new Date().toISOString()
     };
 
-    this.bookings.push(booking);
-    localStorage.setItem('cf-bookings', JSON.stringify(this.bookings));
+    // Afficher un indicateur de chargement
+    const submitBtn = this.form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+    submitBtn.disabled = true;
+
+    try {
+      // Envoyer par EmailJS
+      await this.sendBookingEmail(booking);
+      
+      // Sauvegarder localement
+      this.bookings.push(booking);
+      localStorage.setItem('cf-bookings', JSON.stringify(this.bookings));
+      
+      this.form.reset();
+      this.renderBookings();
+      
+      Utils.showNotification('✅ Réservation envoyée avec succès ! Nous vous contacterons bientôt.', 'success');
+      
+    } catch (error) {
+      console.error('Erreur envoi réservation:', error);
+      Utils.showNotification('❌ Erreur lors de l\'envoi. Veuillez réessayer ou nous contacter directement.', 'error');
+    } finally {
+      // Restaurer le bouton
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }
+  }
+
+  async sendBookingEmail(booking) {
+    // Vérifier si EmailJS est configuré
+    if (CONFIG.EMAILJS.SERVICE_ID === "YOUR_SERVICE_ID") {
+      // Mode de démonstration - simuler l'envoi
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      console.log('📧 Réservation reçue (mode démo):', booking);
+      return;
+    }
+
+    // Configuration EmailJS
+    emailjs.init(CONFIG.EMAILJS.PUBLIC_KEY);
     
-    this.form.reset();
-    this.renderBookings();
-    
-    Utils.showNotification('Réservation confirmée ! Nous vous contacterons bientôt.', 'success');
+    const templateParams = {
+      service: booking.service,
+      date: booking.date,
+      time: booking.time,
+      name: booking.name,
+      phone: booking.phone,
+      email: booking.email,
+      message: booking.message || 'Aucun message',
+      salon_email: 'contact@chezfillya.cd',
+      salon_name: 'Chez Fillya'
+    };
+
+    return emailjs.send(
+      CONFIG.EMAILJS.SERVICE_ID,
+      CONFIG.EMAILJS.TEMPLATE_ID,
+      templateParams
+    );
   }
 
   renderBookings() {
