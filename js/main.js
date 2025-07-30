@@ -6,11 +6,11 @@ const CONFIG = {
     weekdays: "9h - 19h",
     sunday: "10h - 17h"
   },
-  // Configuration EmailJS (à remplacer par tes vraies clés)
-  EMAILJS: {
-    SERVICE_ID: "YOUR_SERVICE_ID", // Remplace par ton Service ID
-    TEMPLATE_ID: "YOUR_TEMPLATE_ID", // Remplace par ton Template ID
-    PUBLIC_KEY: "YOUR_PUBLIC_KEY" // Remplace par ta Public Key
+  // Configuration WhatsApp Business API
+  WHATSAPP: {
+    PHONE_NUMBER: "243800000000", // Numéro WhatsApp du salon
+    BUSINESS_NAME: "Chez Fillya",
+    SALON_EMAIL: "contact@chezfillya.cd"
   }
 };
 
@@ -183,8 +183,8 @@ class BookingSystem {
     submitBtn.disabled = true;
 
     try {
-      // Envoyer par EmailJS
-      await this.sendBookingEmail(booking);
+      // Envoyer par WhatsApp
+      await this.sendBookingWhatsApp(booking);
       
       // Sauvegarder localement
       this.bookings.push(booking);
@@ -193,7 +193,7 @@ class BookingSystem {
       this.form.reset();
       this.renderBookings();
       
-      Utils.showNotification('✅ Réservation envoyée avec succès ! Nous vous contacterons bientôt.', 'success');
+      Utils.showNotification('✅ Réservation envoyée sur WhatsApp ! Vérifiez votre téléphone.', 'success');
       
     } catch (error) {
       console.error('Erreur envoi réservation:', error);
@@ -205,35 +205,65 @@ class BookingSystem {
     }
   }
 
-  async sendBookingEmail(booking) {
-    // Vérifier si EmailJS est configuré
-    if (CONFIG.EMAILJS.SERVICE_ID === "YOUR_SERVICE_ID") {
-      // Mode de démonstration - simuler l'envoi
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('📧 Réservation reçue (mode démo):', booking);
-      return;
-    }
+  async sendBookingWhatsApp(booking) {
+    // Formater la date en français
+    const dateObj = new Date(booking.date);
+    const formattedDate = dateObj.toLocaleDateString('fr-FR', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
 
-    // Configuration EmailJS
-    emailjs.init(CONFIG.EMAILJS.PUBLIC_KEY);
+    // Créer le message WhatsApp
+    const message = this.formatWhatsAppMessage(booking, formattedDate);
     
-    const templateParams = {
-      service: booking.service,
-      date: booking.date,
-      time: booking.time,
-      name: booking.name,
-      phone: booking.phone,
-      email: booking.email,
-      message: booking.message || 'Aucun message',
-      salon_email: 'contact@chezfillya.cd',
-      salon_name: 'Chez Fillya'
+    // Encoder le message pour l'URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Créer l'URL WhatsApp
+    const whatsappUrl = `https://wa.me/${CONFIG.WHATSAPP.PHONE_NUMBER}?text=${encodedMessage}`;
+    
+    // Ouvrir WhatsApp dans un nouvel onglet
+    window.open(whatsappUrl, '_blank');
+    
+    // Simuler un délai pour l'expérience utilisateur
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+
+  formatWhatsAppMessage(booking, formattedDate) {
+    const serviceNames = {
+      'coupe-homme': 'Coupe Homme',
+      'coupe-femme': 'Coupe Femme', 
+      'extensions': 'Extensions',
+      'manucure': 'Manucure',
+      'pedicure': 'Pédicure',
+      'coloration': 'Coloration'
     };
 
-    return emailjs.send(
-      CONFIG.EMAILJS.SERVICE_ID,
-      CONFIG.EMAILJS.TEMPLATE_ID,
-      templateParams
-    );
+    const serviceName = serviceNames[booking.service] || booking.service;
+
+    return `🎨 *NOUVELLE RÉSERVATION - CHEZ FILLYA* 🎨
+
+📋 *Détails de la réservation :*
+• Service : ${serviceName}
+• Date : ${formattedDate}
+• Heure : ${booking.time}
+
+👤 *Informations client :*
+• Nom : ${booking.name}
+• Téléphone : ${booking.phone}
+• Email : ${booking.email}
+
+💬 *Message :*
+${booking.message || 'Aucun message'}
+
+---
+📞 Salon : +${CONFIG.WHATSAPP.PHONE_NUMBER}
+📍 Adresse : 10 rue Lukunga, Lemba, Kinshasa
+⏰ Horaires : Lundi-Samedi 9h-19h, Dimanche 10h-17h
+
+*Cette réservation a été envoyée depuis le site web de Chez Fillya.*`;
   }
 
   renderBookings() {
