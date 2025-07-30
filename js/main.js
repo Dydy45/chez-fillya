@@ -608,13 +608,17 @@ class ActiveNavigation {
   }
 }
 
+// ===== VARIABLES GLOBALES =====
+let bookingSystem;
+let shopSystem;
+
 // ===== INITIALISATION =====
 document.addEventListener('DOMContentLoaded', () => {
   // Initialiser tous les systèmes
   new MobileNavigation();
-  const bookingSystem = new BookingSystem();
+  bookingSystem = new BookingSystem();
   const reviewSystem = new ReviewSystem();
-  const shopSystem = new ShopSystem();
+  shopSystem = new ShopSystem();
   const mapSystem = new MapSystem();
   const gallerySystem = new GallerySystem();
   new SmoothScroll();
@@ -635,8 +639,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
   }
+  
+  // Exposition globale
+  window.bookingSystem = bookingSystem;
+  window.shopSystem = shopSystem;
 });
-
-// ===== EXPOSITION GLOBALE =====
-window.bookingSystem = bookingSystem;
-window.shopSystem = shopSystem;
