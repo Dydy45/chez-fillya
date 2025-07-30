@@ -3,200 +3,593 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Balises SEO -->
-  <title>Chez Fillya – Salon de coiffure mixte | Kinshasa</title>
-  <meta name="description" content="Coupe homme & femme, extensions, manucure et pédicure au 10 rue Lukunga, Lemba, Kinshasa. Réservez en ligne !">
-  <meta name="keywords" content="salon coiffure Kinshasa, coiffure mixte, extensions, manucure, pédicure, Lemba">
+  
+  <!-- SEO & Meta -->
+  <title>Chez Fillya – Salon de Coiffure Premium | Kinshasa</title>
+  <meta name="description" content="Salon de coiffure premium à Kinshasa. Coupes tendance, extensions, manucure et pédicure. Réservez en ligne et découvrez nos services professionnels.">
+  <meta name="keywords" content="salon coiffure Kinshasa, coiffure premium, extensions cheveux, manucure pédicure, Lemba, RDV en ligne">
   <meta name="author" content="Chez Fillya">
   
-  <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
-  <meta property="og:title" content="Chez Fillya – Salon de coiffure mixte">
-  <meta property="og:description" content="Prenez RDV en ligne et découvrez nos produits capillaires.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Chez Fillya – Salon de Coiffure Premium | Kinshasa">
+  <meta property="og:description" content="Salon de coiffure premium à Kinshasa. Coupes tendance, extensions, manucure et pédicure. Réservez en ligne !">
   <meta property="og:image" content="https://dydy45.github.io/chez-fillya/img/og-image.jpeg">
   <meta property="og:url" content="https://dydy45.github.io/chez-fillya/">
   <meta property="og:type" content="website">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Chez Fillya – Salon de coiffure mixte">
-  <meta name="twitter:description" content="Réservez en ligne et achetez nos produits.">
+  <meta name="twitter:title" content="Chez Fillya – Salon de Coiffure Premium">
+  <meta name="twitter:description" content="Salon de coiffure premium à Kinshasa. Réservez en ligne !">
   <meta name="twitter:image" content="https://dydy45.github.io/chez-fillya/img/og-image.jpeg">
-  <meta name="theme-color" content="#f43f5e">
   
+  <!-- Theme & Icons -->
+  <meta name="theme-color" content="#8B5CF6">
   <link rel="icon" href="favicon.ico">
   <link rel="manifest" href="manifest.json">
-  <!-- Canonique -->
   <link rel="canonical" href="https://dydy45.github.io/chez-fillya/">
 
+  <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>Chez <span>Fillya</span></h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#galerie">Galerie</a>
-      <a href="#rdv">RDV</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <h1>Chez <span>Fillya</span></h1>
+      </div>
+      <div class="nav-menu" id="nav-menu">
+        <a href="#accueil" class="nav-link">Accueil</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#galerie" class="nav-link">Galerie</a>
+        <a href="#rdv" class="nav-link">Réservation</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
 
   <main>
-    <section id="hero">
-      <h2>Salon de coiffure mixte</h2>
-      <p>Coupe, extensions, manucure & pédicure</p>
-      <a href="#rdv" class="btn">Prendre RDV</a>
-    </section>
-    
-    <section id="services">
-      <h2>Nos Services</h2>
-      <ul class="cards">
-        <li>
-          <h3>Coupe Homme</h3>
-          <p>25 € – 30 min</p>
-        </li>
-        <li>
-          <h3>Coupe Femme</h3>
-          <p>35 € – 45 min</p>
-        </li>
-        <li>
-          <h3>Extensions</h3>
-          <p>150 € – 2 h</p>
-        </li>
-        <li>
-          <h3>Manucure</h3>
-          <p>20 € – 30 min</p>
-        </li>
-        <li>
-          <h3>Pédicure</h3>
-          <p>25 € – 30 min</p>
-        </li>
-      </ul>
-    </section>
-    
-    <section id="galerie">
-      <h2>Galerie</h2>
-      <div class="gallery">
-        <img src="img/hair_man.jpeg" alt="">
-        <img src="img/hair_woman.jpeg" alt="">
-        <img src="img/nails.jpeg" alt="">
-        <img src="img/pedicure.jpeg" alt="">
-        <img src="img/barbershop.jpeg" alt="">
-        <img src="img/hairstyle.jpeg" alt="">
+    <!-- Section Hero -->
+    <section id="accueil" class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2 class="hero-title">Salon de Coiffure Premium</h2>
+          <p class="hero-subtitle">Découvrez l'excellence capillaire au cœur de Kinshasa</p>
+          <div class="hero-features">
+            <div class="feature">
+              <i class="fas fa-cut"></i>
+              <span>Coupes tendance</span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-star"></i>
+              <span>Service premium</span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-clock"></i>
+              <span>Réservation en ligne</span>
+            </div>
+          </div>
+          <div class="hero-buttons">
+            <a href="#rdv" class="btn btn-primary">Prendre RDV</a>
+            <a href="#services" class="btn btn-secondary">Nos Services</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="img/hairstyle.jpeg" alt="Salon Chez Fillya" loading="lazy">
+        </div>
       </div>
     </section>
 
-    <section id="rdv">
-      <h2>Prendre RDV</h2>
-      <form id="booking-form">
-        <label>
-          Service
-          <select name="service" required>
-            <option value="">Choisissez</option>
-            <option>Coupe Homme</option>
-            <option>Coupe Femme</option>
-            <option>Extensions</option>
-            <option>Manucure</option>
-            <option>Pédicure</option>
-          </select>
-        </label>
-    
-        <label>
-          Date
-          <input type="date" name="date" required min="">
-        </label>
-    
-        <label>
-          Heure
-          <input type="time" name="time" required>
-        </label>
-    
-        <label>
-          Nom
-          <input type="text" name="name" required>
-        </label>
-    
-        <label>
-          Email
-          <input type="email" name="email" required>
-        </label>
-    
-        <button type="submit" class="btn">Réserver</button>
-      </form>
-    
-      <h3 id="recap-title" style="display:none;">Votre RDV</h3>
-      <ul id="recap-list"></ul>
-    </section>
-    
-    <section id="map-section">
-      <h2>Nous trouver</h2>
-      <p>10 rue Lukunga, Lemba, Kinshasa</p>
-      <div id="map" style="height:400px; width:100%;"></div>
-      <button id="direction-btn" class="btn">Itinéraire</button>
-      <p id="distance" style="margin-top:.5rem;"></p>
-    </section>
-    
-    <section id="avis">
-      <h2>Avis de nos clients</h2>
-    
-      <!-- Formulaire -->
-      <form id="review-form" class="card">
-        <label>
-          Nom
-          <input type="text" name="name" required>
-        </label>
-    
-        <label>
-          Note
-          <select name="rating" required>
-            <option value="5">★★★★★ 5/5</option>
-            <option value="4">★★★★☆ 4/5</option>
-            <option value="3">★★★☆☆ 3/5</option>
-            <option value="2">★★☆☆☆ 2/5</option>
-            <option value="1">★☆☆☆☆ 1/5</option>
-          </select>
-        </label>
-    
-        <label>
-          Commentaire
-          <textarea name="comment" rows="3" required></textarea>
-        </label>
-    
-        <button type="submit" class="btn">Publier</button>
-      </form>
-    
-      <!-- Liste des avis -->
-      <div id="reviews-list"></div>
-    </section>
-    
-    <section id="shop">
-      <h2>Boutique</h2>
-    
-      <!-- Catalogue -->
-      <div id="catalog" class="catalog"></div>
-    
-      <!-- Panier -->
-      <aside id="cart" class="card">
-        <h3>🛒 Mon panier</h3>
-        <ul id="cart-items"></ul>
-        <p><strong>Total : <span id="cart-total">0</span> USD</strong></p>
-        <button id="checkout" class="btn" disabled>Commander via WhatsApp</button>
-      </aside>
+    <!-- Section À propos -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>Notre Histoire</h2>
+          <p>Plus qu'un salon, une expérience</p>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Chez Fillya, l'excellence depuis 2018</h3>
+            <p>Fondé avec passion au cœur de Lemba, notre salon s'est imposé comme une référence de la coiffure à Kinshasa. Notre équipe de stylistes expérimentés combine créativité et expertise pour vous offrir des looks uniques qui reflètent votre personnalité.</p>
+            <div class="about-stats">
+              <div class="stat">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Années d'expérience</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">1000+</span>
+                <span class="stat-label">Clients satisfaits</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Services spécialisés</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <img src="img/barbershop.jpeg" alt="Notre salon" loading="lazy">
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Les autres sections viendront ici -->
+    <!-- Section Services -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Nos Services</h2>
+          <p>Des prestations sur mesure pour tous</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-cut"></i>
+            </div>
+            <h3>Coupe Homme</h3>
+            <p>Coupes classiques et modernes, tailles de barbe, soins capillaires</p>
+            <div class="service-price">
+              <span class="price">25 €</span>
+              <span class="duration">30 min</span>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-female"></i>
+            </div>
+            <h3>Coupe Femme</h3>
+            <p>Coupes tendance, brushing, lissage, permanente, coloration</p>
+            <div class="service-price">
+              <span class="price">35 €</span>
+              <span class="duration">45 min</span>
+            </div>
+          </div>
+          
+          <div class="service-card featured">
+            <div class="service-icon">
+              <i class="fas fa-magic"></i>
+            </div>
+            <h3>Extensions</h3>
+            <p>Extensions naturelles, mèches, volumisation, longueur</p>
+            <div class="service-price">
+              <span class="price">150 €</span>
+              <span class="duration">2h</span>
+            </div>
+            <div class="featured-badge">Populaire</div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-hand-sparkles"></i>
+            </div>
+            <h3>Manucure</h3>
+            <p>Soin des mains, vernis semi-permanent, nail art</p>
+            <div class="service-price">
+              <span class="price">20 €</span>
+              <span class="duration">30 min</span>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-spa"></i>
+            </div>
+            <h3>Pédicure</h3>
+            <p>Soin des pieds, gommage, massage, vernis</p>
+            <div class="service-price">
+              <span class="price">25 €</span>
+              <span class="duration">30 min</span>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3>Coloration</h3>
+            <p>Coloration professionnelle, balayage, mèches</p>
+            <div class="service-price">
+              <span class="price">45 €</span>
+              <span class="duration">1h30</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Galerie -->
+    <section id="galerie" class="gallery">
+      <div class="container">
+        <div class="section-header">
+          <h2>Notre Galerie</h2>
+          <p>Découvrez nos réalisations</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-category="coupe">
+            <img src="img/hair_man.jpeg" alt="Coupe homme" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Coupe Homme</h4>
+              <p>Style moderne et élégant</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="coupe">
+            <img src="img/hair_woman.jpeg" alt="Coupe femme" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Coupe Femme</h4>
+              <p>Élégance et sophistication</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="manucure">
+            <img src="img/nails.jpeg" alt="Manucure" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Manucure</h4>
+              <p>Soin et beauté des mains</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="pedicure">
+            <img src="img/pedicure.jpeg" alt="Pédicure" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Pédicure</h4>
+              <p>Détente et bien-être</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="salon">
+            <img src="img/barbershop.jpeg" alt="Notre salon" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Notre Salon</h4>
+              <p>Ambiance chaleureuse</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="style">
+            <img src="img/hairstyle.jpeg" alt="Style capillaire" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Style Capillaire</h4>
+              <p>Créativité et tendance</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Réservation -->
+    <section id="rdv" class="booking">
+      <div class="container">
+        <div class="section-header">
+          <h2>Réservez Votre Créneau</h2>
+          <p>Simple, rapide et sécurisé</p>
+        </div>
+        <div class="booking-content">
+          <div class="booking-form-container">
+            <form id="booking-form" class="booking-form">
+              <div class="form-group">
+                <label for="service">Service souhaité</label>
+                <select id="service" name="service" required>
+                  <option value="">Choisissez votre service</option>
+                  <option value="coupe-homme">Coupe Homme - 25€</option>
+                  <option value="coupe-femme">Coupe Femme - 35€</option>
+                  <option value="extensions">Extensions - 150€</option>
+                  <option value="manucure">Manucure - 20€</option>
+                  <option value="pedicure">Pédicure - 25€</option>
+                  <option value="coloration">Coloration - 45€</option>
+                </select>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="date">Date</label>
+                  <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                  <label for="time">Heure</label>
+                  <input type="time" id="time" name="time" required>
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Nom complet</label>
+                  <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Téléphone</label>
+                  <input type="tel" id="phone" name="phone" required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Message (optionnel)</label>
+                <textarea id="message" name="message" rows="3" placeholder="Précisions sur votre demande..."></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-primary btn-full">
+                <i class="fas fa-calendar-check"></i>
+                Confirmer ma réservation
+              </button>
+            </form>
+          </div>
+          
+          <div class="booking-info">
+            <div class="info-card">
+              <div class="info-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="info-content">
+                <h4>Horaires d'ouverture</h4>
+                <p>Lundi - Samedi : 9h - 19h<br>Dimanche : 10h - 17h</p>
+              </div>
+            </div>
+            
+            <div class="info-card">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="info-content">
+                <h4>Notre adresse</h4>
+                <p>10 rue Lukunga<br>Lemba, Kinshasa</p>
+              </div>
+            </div>
+            
+            <div class="info-card">
+              <div class="info-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="info-content">
+                <h4>Contact</h4>
+                <p>+243 80 00 00 00<br>contact@chezfillya.cd</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Récapitulatif des réservations -->
+        <div class="bookings-summary" id="bookings-summary" style="display: none;">
+          <h3>Mes Réservations</h3>
+          <div id="bookings-list" class="bookings-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <h2>Avis de Nos Clients</h2>
+          <p>Ils nous font confiance</p>
+        </div>
+        
+        <div class="testimonials-content">
+          <div class="testimonials-form">
+            <h3>Partagez votre expérience</h3>
+            <form id="review-form" class="review-form">
+              <div class="form-group">
+                <label for="review-name">Votre nom</label>
+                <input type="text" id="review-name" name="name" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="review-rating">Note</label>
+                <div class="rating-input">
+                  <input type="radio" name="rating" value="5" id="star5" required>
+                  <label for="star5"><i class="fas fa-star"></i></label>
+                  <input type="radio" name="rating" value="4" id="star4">
+                  <label for="star4"><i class="fas fa-star"></i></label>
+                  <input type="radio" name="rating" value="3" id="star3">
+                  <label for="star3"><i class="fas fa-star"></i></label>
+                  <input type="radio" name="rating" value="2" id="star2">
+                  <label for="star2"><i class="fas fa-star"></i></label>
+                  <input type="radio" name="rating" value="1" id="star1">
+                  <label for="star1"><i class="fas fa-star"></i></label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="review-comment">Votre avis</label>
+                <textarea id="review-comment" name="comment" rows="4" required placeholder="Racontez-nous votre expérience..."></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i>
+                Publier mon avis
+              </button>
+            </form>
+          </div>
+          
+          <div class="testimonials-list" id="testimonials-list">
+            <!-- Les avis seront générés dynamiquement -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Boutique -->
+    <section id="shop" class="shop">
+      <div class="container">
+        <div class="section-header">
+          <h2>Notre Boutique</h2>
+          <p>Produits professionnels pour vos soins</p>
+        </div>
+        
+        <div class="shop-content">
+          <div class="products-grid" id="products-grid">
+            <!-- Les produits seront générés dynamiquement -->
+          </div>
+          
+          <div class="cart-sidebar" id="cart-sidebar">
+            <div class="cart-header">
+              <h3><i class="fas fa-shopping-cart"></i> Mon Panier</h3>
+              <button id="cart-toggle" class="cart-toggle">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="cart-items" id="cart-items">
+              <!-- Les articles du panier seront générés dynamiquement -->
+            </div>
+            <div class="cart-footer">
+              <div class="cart-total">
+                <span>Total :</span>
+                <span id="cart-total">0 €</span>
+              </div>
+              <button id="checkout-btn" class="btn btn-primary btn-full" disabled>
+                <i class="fab fa-whatsapp"></i>
+                Commander via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Nous Contacter</h2>
+          <p>Nous sommes là pour vous</p>
+        </div>
+        
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Adresse</h4>
+                <p>10 rue Lukunga<br>Lemba, Kinshasa<br>République Démocratique du Congo</p>
+              </div>
+            </div>
+            
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Téléphone</h4>
+                <p><a href="tel:+243800000000">+243 80 00 00 00</a></p>
+                <p><a href="https://wa.me/243800000000" target="_blank">WhatsApp</a></p>
+              </div>
+            </div>
+            
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Email</h4>
+                <p><a href="mailto:contact@chezfillya.cd">contact@chezfillya.cd</a></p>
+              </div>
+            </div>
+            
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Horaires</h4>
+                <p>Lundi - Samedi : 9h - 19h<br>Dimanche : 10h - 17h</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-map">
+            <h3>Nous Trouver</h3>
+            <div id="map" class="map-container"></div>
+            <button id="direction-btn" class="btn btn-secondary">
+              <i class="fas fa-directions"></i>
+              Itinéraire
+            </button>
+            <p id="distance" class="distance-info"></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <p>📍 10 rue Lukunga, Lemba, Kinshasa</p>
-    <p>📞 <a href="tel:+243800000000">+243 80 00 00 00</a></p>
-    <p>&copy; <script>document.write(new Date().getFullYear());</script> Chez Fillya</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Chez Fillya</h3>
+          <p>Salon de coiffure premium au cœur de Kinshasa. Notre équipe de professionnels s'engage à vous offrir une expérience unique et des résultats exceptionnels.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Coupes Homme/Femme</a></li>
+            <li><a href="#services">Extensions</a></li>
+            <li><a href="#services">Manucure & Pédicure</a></li>
+            <li><a href="#services">Coloration</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Informations</h4>
+          <ul>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#rdv">Réservation</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>📍 10 rue Lukunga, Lemba, Kinshasa</p>
+          <p>📞 <a href="tel:+243800000000">+243 80 00 00 00</a></p>
+          <p>✉️ <a href="mailto:contact@chezfillya.cd">contact@chezfillya.cd</a></p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <script>document.write(new Date().getFullYear());</script> Chez Fillya. Tous droits réservés.</p>
+      </div>
+    </div>
   </footer>
 
+  <!-- Lightbox pour la galerie -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="">
+      <button class="lightbox-close">&times;</button>
+      <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <!-- Notification -->
+  <div id="notification" class="notification">
+    <div class="notification-content">
+      <i class="notification-icon"></i>
+      <span class="notification-message"></span>
+    </div>
+  </div>
+
+  <!-- Scripts -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script type="module" src="js/main.js"></script>
 </body>

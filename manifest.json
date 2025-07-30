@@ -1,13 +1,53 @@
 {
-  "name": "Chez Fillya – Salon de coiffure mixte",
+  "name": "Chez Fillya - Salon de Coiffure Premium",
   "short_name": "Chez Fillya",
-  "description": "Prenez RDV et achetez nos produits capillaires à Kinshasa.",
+  "description": "Salon de coiffure premium à Kinshasa. Coupes tendance, extensions, manucure et pédicure.",
   "start_url": "/chez-fillya/",
   "display": "standalone",
-  "background_color": "#fafafa",
-  "theme_color": "#f43f5e",
+  "background_color": "#8B5CF6",
+  "theme_color": "#8B5CF6",
+  "orientation": "portrait-primary",
+  "scope": "/chez-fillya/",
+  "lang": "fr",
+  "categories": ["beauty", "business"],
   "icons": [
-    { "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    {
+      "src": "img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Prendre RDV",
+      "short_name": "RDV",
+      "description": "Réserver un créneau",
+      "url": "/chez-fillya/#rdv",
+      "icons": [
+        {
+          "src": "img/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Nos Services",
+      "short_name": "Services",
+      "description": "Voir nos services",
+      "url": "/chez-fillya/#services",
+      "icons": [
+        {
+          "src": "img/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
   ]
 }
