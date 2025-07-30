@@ -1,7 +1,7 @@
 // ===== CONFIGURATION GLOBALE =====
 const CONFIG = {
   SALON_COORDS: [-4.37663, 15.34197], // Kinshasa
-  WHATSAPP_PHONE: "243800000000",
+  WHATSAPP_PHONE: "243980166216",
   OPENING_HOURS: {
     weekdays: "9h - 19h",
     sunday: "10h - 17h"
